@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +21,14 @@ namespace MySnakeApp
         bool right = false;
         bool up = false;
         bool down = false;
-        int score = 0;
+        public static int score = 0;
+
+        public static int getScore()
+        {
+            return score;
+        }
+
+        
 
         public SnakeForm()
         {
@@ -78,7 +85,7 @@ namespace MySnakeApp
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void timer1_Tick(object sender, EventArgs e)
         {
             scoreCounter.Text = Convert.ToString(score);
             if (down) { manager.MoveDown(); }
@@ -93,6 +100,7 @@ namespace MySnakeApp
                     score += 1;
                     manager.MakeSnakeGrow();
                     factory.Foodlocation(randomLocation);
+
             }
             
         }
